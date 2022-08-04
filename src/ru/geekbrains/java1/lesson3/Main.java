@@ -60,8 +60,9 @@ public class Main {
         }
     }
 
-    private static void guessWord(){
+    private static void guessWord() {
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
         String[] words = {"apple", "orange", "lemon",
                 "banana", "apricot", "avocado", "broccoli",
                 "carrot", "cherry", "garlic", "grape", "melon",
@@ -75,14 +76,14 @@ public class Main {
 
         String[] tempArr = temp.split("");
 
-        while (true){
+        while (true) {
             String guessWord = scanner.nextLine();
-            if (guessWord.equals(word)){
+            if (guessWord.equals(word)) {
                 System.out.println("win");
                 break;
-            }else {
-                for (int i = 0; i < guessWord.length() ; i++) {
-                    if (guessWord.charAt(i) == word.charAt(i)){
+            } else {
+                for (int i = 0; i < guessWord.length(); i++) {
+                    if (guessWord.charAt(i) == word.charAt(i)) {
                         tempArr[i] = String.valueOf(guessWord.charAt(i));
                     }
                 }
@@ -94,7 +95,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-     //   guessNumber();
-        guessWord();
+        //guessNumber();
+          guessWord();
     }
 }
