@@ -63,17 +63,19 @@ public class Main {
         return max;
     }
 
-    public static boolean checkBalance(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            int sum = 0;
-            for (int j = 0; j < i; j++){
-                sum += nums[j];
-            }
-            for (int j = i; j < nums.length; j++){
-                sum -= nums[j];
-            }
-            if (sum == 0)
+    public static boolean checkBalance(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i  < arr.length; i++) {
+            sum += arr[i];
+        }
+        int leftSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            leftSum += arr[i];
+            if (leftSum * 2 == sum){
                 return true;
+            }else if (leftSum * 2 > sum){
+                return false;
+            }
         }
         return false;
     }
@@ -123,7 +125,5 @@ public class Main {
         System.out.println(checkBalance(new int[]{10,10}));
 
         System.out.println(Arrays.toString(shiftElements(new int[]{1,2,5,6,-52,-12}, 3)));
-
-
     }
 }
